@@ -138,25 +138,31 @@ Fill in your **Gemini API Key** and **Database URL** in the `.env` file.
 
 ### 3. Running the Mesh
 
-The system comprises three parts that must run simultaneously. We provide batch scripts for convenience on Windows.
+You have two ways to run and interact with the system. **Step B (A2A Network)** is the common backbone required for both.
 
-**Step A: Start the Agent Logic (ADK)**
-Runs the "Brains" of the agents.
-```bash
-./start_agents.bat
-```
+#### Option 1: Use the ADK Web Interface (For Debugging Agents)
+Run these two scripts to use the native Agent Development Kit (ADK) interface.
+1.  **Start the A2A Network (Backbone):**
+    ```bash
+    ./start_a2a_servers.bat
+    ```
+2.  **Start the Agent Logic (Brains):**
+    ```bash
+    ./start_agents.bat
+    ```
+    *   Access individual agents at `http://localhost:8001` through `8009`.
 
-**Step B: Start the A2A Network (Servers)**
-Runs the "Bodies" that handle peer-to-peer communication.
-```bash
-./start_a2a_servers.bat
-```
-
-**Step C: Start the Visualization (Frontend)**
-Launches the Control Center dashboard.
-```bash
-./start_frontend.bat
-```
+#### Option 2: Use the React Control Center (Recommended Visualization)
+Run these two scripts to see the full "City View" dashboard.
+1.  **Start the A2A Network (Backbone):**
+    ```bash
+    ./start_a2a_servers.bat
+    ```
+2.  **Start the Frontend (Dashboard):**
+    ```bash
+    ./start_frontend.bat
+    ```
+    *   Access the dashboard at `http://localhost:3000`.
 
 ### 4. Testing the System
 1.  Go to `http://localhost:3000`.
