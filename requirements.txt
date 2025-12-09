@@ -1,0 +1,59 @@
+# ==========================================
+# Core Frameworks
+# ==========================================
+# Google Agent Development Kit for the "Brain" logic
+google-adk>=0.4.0
+
+# Official A2A SDK for the "Server" side (handling incoming JSON-RPC tasks)
+a2a-sdk[http-server,telemetry]>=0.3.17
+
+# ==========================================
+# Web & Networking
+# ==========================================
+# FastAPI for the agent server endpoints
+fastapi>=0.109.0
+python-dotenv>=1.0.0
+
+# ASGI Server to run the agents
+uvicorn[standard]>=0.27.0
+
+# HTTP Client for our custom A2A Client & Consul Registry
+httpx>=0.26.0
+
+# JWT for securing A2A messages
+pyjwt>=2.8.0
+
+# ==========================================
+# Utilities & Data
+# ==========================================
+# Data validation for our Models
+pydantic>=2.6.0
+
+# Environment variable management
+python-dotenv>=1.0.0
+
+# Structured JSON logging (Audit Trail)
+structlog>=24.1.0
+
+# ==========================================
+# Observability (Tracing & Metrics)
+# ==========================================
+opentelemetry-api
+opentelemetry-sdk
+opentelemetry-exporter-otlp
+prometheus-client
+
+# ==========================================
+# Domain Specific
+# ==========================================
+# YOLOv8 for the Sensor Agent (Computer Vision)
+ultralytics>=8.1.0
+
+# OpenCV headless for image processing in Docker
+opencv-python-headless>=4.9.0
+
+# Redis client for the Task Store (if using RedisTaskStore)
+redis>=5.0.0
+
+# Postgres client
+asyncpg>=0.29.0
