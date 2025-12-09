@@ -56,7 +56,25 @@ We implemented two key behaviors:
 > *   All sensor data, map coordinates, and incident outcomes are **simulated** for testing purposes.
 > *   This is a technical demonstration of software resilience, NOT a production-ready emergency response system.
 
-To prove this architecture works, I built a prototype simulating a city Emergency Response system.
+To prove this architecture works, I built a prototype simulating a city Emergency Response system. 
+
+#### Why Disaster Management?
+I chose this domain because it perfectly illustrates the need for high availability. In an emergency, a 5-minute server outage can cost lives. A centralized system that crashes is unacceptable; the system *must* continue to function using whatever nodes are left.
+
+#### The Agents (Simulated Roles)
+Each agent in this mesh represents a specific department or sensor type:
+
+*   **Dispatch Agent (Orchestrator):** Simulates the 911 Operator. Its job is to listen to requests, classify them (Fire vs. Crime), and route them to the correct department.
+*   **Fire Chief Agent:** Simulates a Fire Station Commander. It can "deploy" engines, request medical backup, and coordinate hazmat responses.
+*   **Medical Agent:** Simulates the Hospital/Ambulance dispatch. It manages casualty triage and ambulance routing.
+*   **Police Chief Agent:** Simulates Law Enforcement. Handles crowd control, secures crime scenes, and acts as a **Universal Fallback** for other agents (e.g., using squad cars for public alerts if the sirens fail).
+*   **Utility Agent:** Simulates the City Infrastructure control. It can "cut" power or gas to preventing secondary explosions at a fire scene.
+*   **Civic Alert Agent:** Simulates the Public Warning System (Digital signs, SMS).
+
+**Input Agents (The Triggers):**
+*   **IoT Sensor:** Simulates heat/smoke/seismic sensors. It can bypass Dispatch to trigger the Fire Chief directly if readings go critical.
+*   **Camera:** Simulates a smart CCTV. It uses (simulated) Vision AI to detect fights or fires and alert the Police directly.
+*   **Human Intake:** A web interface mimicking a citizen calling 911.
 
 #### Scenario A: Normal Operation (Orchestration)
 1.  **Input Agent** (Human/IoT) sends alert to **Dispatch Agent** (The Manager).
