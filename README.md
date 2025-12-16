@@ -172,6 +172,3 @@ Run these two scripts to see the full "City View" dashboard.
 ## License
 
 This project is licensed under the Apache 2.0 License. See the `LICENSE` file for details.
-
-## Built by
-Akshith Npss
